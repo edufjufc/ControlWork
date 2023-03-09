@@ -17,7 +17,22 @@ void ShowArray(string[] array)
     Console.WriteLine();
 }
 
+string[] NewArray(int size, string[] oldarray)
+{
+    string[] array = new string [size];
+    for(int i = 0; i < size; i++)
+    {
+        if(oldarray[i].Length < 4) 
+        array[i]=oldarray[i];
+    }
+    return array;
+}
+
 Console.Write("Input a number of elements: ");
 int n=Convert.ToInt32(Console.ReadLine());
 string[] myArray=CreateRandomArray(n);
 ShowArray(myArray);
+
+Console.WriteLine("New array: ");
+string[] Array=NewArray(n, myArray);
+ShowArray(Array);
